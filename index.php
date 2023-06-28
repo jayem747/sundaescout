@@ -5,13 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SundaeScout home</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
   <header>
     <div class="topnav">
       <a href="index.php"><img src="assets/logo.png" width="25px"></a>
       <a href="account.php">account</a>
+      <?php
+      session_start();
+      if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+        echo '<a href="logout.php">log uit</a>';
+      }
+      ?>
     </div>
   </header>
   <div id="map"></div>
